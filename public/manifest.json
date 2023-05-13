@@ -1,18 +1,25 @@
 {
-  "short_name": "react-chrome-extension-template-side-panel",
-  "name": "React Chrome Extension Template: Side Panel",
-  "version": "0.2.0",
   "manifest_version": 3,
+  "name": "ChatGPT ThinkTank",
+  "version": "0.1.0",
+  "description": "Chrome extension combining ChatGPT functionality with a side panel UI",
+  "icons": {},
+  "permissions": [
+    "storage",
+    "scripting",
+    "tabs",
+    "https://chat.openai.com/chat"
+  ],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "css": ["dist/index.4eeece91.css"],
-      "js": ["dist/index.6099912e.js"]
+      "matches": ["https://chat.openai.com/chat"],
+      "js": ["content.js"]
     }
   ],
-  "permissions": ["storage", "scripting", "tabs"],
-  "icons": {}
+  "action": {
+    "default_popup": "popup.html"
+  }
 }
